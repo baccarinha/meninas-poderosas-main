@@ -2,22 +2,20 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Compartilhe o Site com QR Code</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <style>
-    /* Centraliza o QR code na tela */
     body, html {
       height: 100%;
       margin: 0;
       display: flex;
-      justify-content: center; /* centraliza horizontal */
-      align-items: center;     /* centraliza vertical */
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       background-color: #f5f5f5;
       font-family: Arial, sans-serif;
-      flex-direction: column;
+      text-align: center;
     }
-
     #qrcode {
       padding: 20px;
       background: white;
@@ -26,14 +24,8 @@
       box-shadow: 0 0 10px rgba(106, 13, 173, 0.5);
       margin-bottom: 20px;
     }
-
-    h2 {
-      color: #6a0dad;
-      margin-bottom: 10px;
-    }
-
     button {
-      padding: 10px 20px;
+      padding: 12px 24px;
       background-color: #6a0dad;
       color: white;
       border: none;
@@ -41,36 +33,31 @@
       cursor: pointer;
       font-size: 16px;
     }
-
     button:hover {
-      background-color: #540a9e;
+      background-color: #520aaf;
     }
   </style>
 </head>
 <body>
 
   <h2>Compartilhe nosso site!</h2>
-
   <div id="qrcode"></div>
-
-  <button onclick="entrarSite()">Entrar no site</button>
+  <button id="entrar">Entrar no site</button>
 
   <script>
-    // URL do site que você quer que o QR code compartilhe
-    // Aqui coloque o endereço real do seu site principal:
-    const urlDoSitePrincipal = "https://seudominio.com";
+    const url = "sua_pagina_principal.html"; // Coloque o caminho da sua página principal aqui
 
-    // Cria o QR Code no elemento #qrcode
+    // Cria o QR code com o link da sua página principal
     new QRCode(document.getElementById("qrcode"), {
-      text: urlDoSitePrincipal,
+      text: url,
       width: 200,
       height: 200,
     });
 
-    // Função para ir para o site principal
-    function entrarSite() {
-      window.location.href = urlDoSitePrincipal;
-    }
+    // Botão para entrar na página principal
+    document.getElementById("entrar").addEventListener("click", () => {
+      window.location.href = url;
+    });
   </script>
 
 </body>
