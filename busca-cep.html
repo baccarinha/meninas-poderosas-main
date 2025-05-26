@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Busca CEP</title>
+
+  <!-- Aqui você coloca o CSS dentro do <style> -->
+  <style>
+    #busca-cep input {
+      padding: 8px;
+      font-size: 16px;
+      width: 200px;
+    }
+
+    #busca-cep button {
+      padding: 8px 12px;
+      font-size: 16px;
+      margin-left: 8px;
+      cursor: pointer;
+      background-color: #6a0dad;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+
+    #resultado-cep p {
+      margin: 4px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <section id="busca-cep">
+    <h2>Buscar Endereço pelo CEP</h2>
+    <input type="text" id="cep" placeholder="Digite o CEP (somente números)" maxlength="8" />
+    <button id="btn-buscar">Buscar</button>
+
+    <div id="resultado-cep" style="margin-top: 20px;"></div>
+  </section>
+
+  <!-- Aqui você insere o JavaScript da busca CEP -->
+  <script>
+    document.getElementById('btn-buscar').addEventListener('click', function() {
+      const cep = document.getElementById('cep').value.trim();
+
+      if (!/^\d{8}$/.test(cep)) {
+        alert('Por favor, digite um CEP válido com 8 números.');
+        return;
+      }
+
+      fetch(`https://viacep.com.br/ws/${cep}/json/`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.erro) {
+            document.getElementById('resultado-cep').innerHTML = '<p>CEP não encontrado.</p>';
+          } else {
+            document.getElementById('resultado-cep').innerHTML = `
+              <p><strong>Logradouro:</strong> ${data.logradouro}</p>
+              <p><strong>Bairro:</strong> ${data.bairro}</p>
+              <p><strong>Cidade:</strong> ${data.localidade}</p>
+              <p><strong>Estado:</strong> ${data.uf}</p>
+            `;
+          }
+        })
+        .catch(() => {
+          document.getElementById('resultado-cep').innerHTML = '<p>Erro ao buscar o CEP. Tente novamente.</p>';
+        });
+    });
+  </script>
+
+</body>
+</html>
