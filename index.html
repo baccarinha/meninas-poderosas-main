@@ -36,47 +36,7 @@
         <li><input type="checkbox" value="9-12" /> 9 a 12 anos</li>
       </ul>
     </aside>
-      <!-- Busca cep -->
-<section id="busca-cep">
-  <h2>Buscar Endereço pelo CEP</h2>
-  <input type="text" id="cep" placeholder="Digite o CEP (somente números)" maxlength="8" />
-  <button id="btn-buscar">Buscar</button>
 
-  <div id="resultado-cep" style="margin-top: 20px;"></div>
-</section>
-
-     <!-- Aqui vem o código JavaScript -->
-  <script>
-  document.getElementById('btn-buscar').addEventListener('click', function() {
-    const cep = document.getElementById('cep').value.trim();
-
-    // Validar CEP (8 dígitos numéricos)
-    if (!/^\d{8}$/.test(cep)) {
-      alert('Por favor, digite um CEP válido com 8 números.');
-      return;
-    }
-
-    const url = `https://viacep.com.br/ws/${cep}/json/`;
-
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        if (data.erro) {
-          document.getElementById('resultado-cep').innerHTML = '<p>CEP não encontrado.</p>';
-        } else {
-          document.getElementById('resultado-cep').innerHTML = `
-            <p><strong>Logradouro:</strong> ${data.logradouro}</p>
-            <p><strong>Bairro:</strong> ${data.bairro}</p>
-            <p><strong>Cidade:</strong> ${data.localidade}</p>
-            <p><strong>Estado:</strong> ${data.uf}</p>
-          `;
-        }
-      })
-      .catch(() => {
-        document.getElementById('resultado-cep').innerHTML = '<p>Erro ao buscar o CEP. Tente novamente.</p>';
-      });
-  });
-  </script>
     <!-- Produtos -->
     <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-4/5">
       <!-- Os produtos serão renderizados via JavaScript -->
