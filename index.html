@@ -27,7 +27,7 @@
       height: 200,
     });
   </script>
-
+  
 </body>
 </html>
 
@@ -41,6 +41,9 @@
 
 </head>
 <body class="bg-gradient-to-br from-pink-100 via-purple-100 to-yellow-100 min-h-screen font-sans">
+
+  <div id="qrcode"></div>
+
 
   <!-- Header -->
   <header class="bg-white shadow-md p-4 flex justify-between items-center">
@@ -227,4 +230,16 @@
   </script>
 
 </body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<script>
+  const url = window.location.href; // pega o endereço da página
+  new QRCode(document.getElementById("qrcode"), {
+    text: url,
+    width: 200,
+    height: 200,
+  });
+</script>
+
 </html>
