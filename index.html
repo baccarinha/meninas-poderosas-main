@@ -15,7 +15,6 @@
       <h1 class="text-2xl font-bold text-pink-500">Meninas Poderosas</h1>
     </div>
     <nav class="text-pink-600 font-medium flex gap-6">
-      <li><a href="busca-cep.html">Buscar CEP</a></li>
       <a href="#">Início</a>
       <a href="#registro">Registro</a>
       <a href="#carrinho">Carrinho</a>
@@ -41,6 +40,18 @@
       <!-- Os produtos serão renderizados via JavaScript -->
     </section>
   </main>
+
+  <!-- Seção Registro -->
+  <section id="registro" class="bg-white mx-6 my-10 p-6 rounded-xl shadow-md">
+    <h2 class="text-2xl font-bold text-pink-600 mb-4">Registro</h2>
+    <form class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <input class="p-2 rounded border" type="text" placeholder="Nome completo" />
+      <input class="p-2 rounded border" type="email" placeholder="Email" />
+      <input class="p-2 rounded border" type="password" placeholder="Senha" />
+      <input class="p-2 rounded border" type="text" placeholder="Endereço" />
+      <button class="col-span-2 bg-pink-500 text-white p-3 rounded-xl hover:bg-pink-600">Registrar</button>
+    </form>
+  </section>
 
   <!-- Seção Carrinho -->
   <section id="carrinho" class="bg-white mx-6 my-10 p-6 rounded-xl shadow-md">
@@ -73,26 +84,26 @@
   <!-- Scripts -->
   <script>
     const produtos = [
-      { nome: "Boneca Princesa Rosa", preco: "R$ 89,90", img: "boneca.png", idade: "3-5" },
-      { nome: "Casa de Boneca Encantada", preco: "R$ 199,90", img: "casadebonecaencantada.png", idade: "6-8" },
-      { nome: "Unicórnio de Pelúcia", preco: "R$ 59,90", img: "unicorniodepelucia.png", idade: "3-5" },
-      { nome: "Kit de Penteadeira Infantil", preco: "R$ 129,90", img: "kitdepenteadeirainfantil.png", idade: "6-8" },
-      { nome: "Cozinha Infantil Rosa", preco: "R$ 159,90", img: "cozinhainfantilrosa.png", idade: "6-8" },
-      { nome: "Carrinho de Boneca", preco: "R$ 79,90", img: "carrinho.png", idade: "3-5" },
-      { nome: "Castelo Encantado de Princesas", preco: "R$ 249,90", img: "castelo.png", idade: "6-8" },
-      { nome: "Conjunto de Chá Mágico", preco: "R$ 49,90", img: "chamagico.png", idade: "3-5" },
-      { nome: "Kit Médico Infantil", preco: "R$ 69,90", img: "medico.png", idade: "6-8" },
-      { nome: "Boneca Bebê com Acessórios", preco: "R$ 99,90", img: "bonecoacessorios.png", idade: "3-5" },
-      { nome: "Maleta de Pintura Rosa", preco: "R$ 39,90", img: "maleta.png", idade: "6-8" },
-      { nome: "Bichinho de Pelúcia Gatinha", preco: "R$ 34,90", img: "gatinho.png", idade: "0-2" },
-      { nome: "Tapete Musical das Princesas", preco: "R$ 89,90", img: "tapeteencantado.png", idade: "0-2" },
-      { nome: "Mini Mercadinho Rosa", preco: "R$ 119,90", img: "mercadinho.png", idade: "6-8" },
-      { nome: "Microfone de Estrela Pop", preco: "R$ 44,90", img: "microfone.png", idade: "6-8" },
-      { nome: "Pônei Encantado com Escova", preco: "R$ 54,90", img: "ponei.png", idade: "3-5" },
-      { nome: "Boneca com Carrinho de Sorvete", preco: "R$ 109,90", img: "sorveteira.png", idade: "6-8" },
-      { nome: "Mesa Didática Rosa", preco: "R$ 139,90", img: "mesaeducativa.png", idade: "3-5" },
-      { nome: "Tapete de Dança Encantado", preco: "R$ 149,90", img: "tapete.png", idade: "6-8" },
-      { nome: "Casinha Mágica de Jardim", preco: "R$ 289,90", img: "casa.png", idade: "9-12" }
+      { nome: "Boneca Princesa Rosa", preco: "R$ 89,90", img: "imagens/boneca.png", idade: "3-5" },
+      { nome: "Casa de Boneca Encantada", preco: "R$ 199,90", img: "imagens/casadebonecaencantada.png", idade: "6-8" },
+      { nome: "Unicórnio de Pelúcia", preco: "R$ 59,90", img: "imagens/unicorniodepelucia.png", idade: "3-5" },
+      { nome: "Kit de Penteadeira Infantil", preco: "R$ 129,90", img: "imagens/kitdepenteadeirainfantil.png", idade: "6-8" },
+      { nome: "Cozinha Infantil Rosa", preco: "R$ 159,90", img: "imagens/cozinhainfantilrosa.png", idade: "6-8" },
+      { nome: "Carrinho de Boneca", preco: "R$ 79,90", img: "imagens/carrinho.png", idade: "3-5" },
+      { nome: "Castelo Encantado de Princesas", preco: "R$ 249,90", img: "imagens/castelo.png", idade: "6-8" },
+      { nome: "Conjunto de Chá Mágico", preco: "R$ 49,90", img: "imagens/chamagico.png", idade: "3-5" },
+      { nome: "Kit Médico Infantil", preco: "R$ 69,90", img: "imagens/medico.png", idade: "6-8" },
+      { nome: "Boneca Bebê com Acessórios", preco: "R$ 99,90", img: "imagens/bonecoacessorios.png", idade: "3-5" },
+      { nome: "Maleta de Pintura Rosa", preco: "R$ 39,90", img: "imagens/maleta.png", idade: "6-8" },
+      { nome: "Bichinho de Pelúcia Gatinha", preco: "R$ 34,90", img: "imagens/gatinho.png", idade: "0-2" },
+      { nome: "Tapete Musical das Princesas", preco: "R$ 89,90", img: "imagens/tapeteencantado.png", idade: "0-2" },
+      { nome: "Mini Mercadinho Rosa", preco: "R$ 119,90", img: "imagens/mercadinho.png", idade: "6-8" },
+      { nome: "Microfone de Estrela Pop", preco: "R$ 44,90", img: "imagens/microfone.png", idade: "6-8" },
+      { nome: "Pônei Encantado com Escova", preco: "R$ 54,90", img: "imagens/ponei.png", idade: "3-5" },
+      { nome: "Boneca com Carrinho de Sorvete", preco: "R$ 109,90", img: "imagens/sorveteira.png", idade: "6-8" },
+      { nome: "Mesa Didática Rosa", preco: "R$ 139,90", img: "imagens/mesaeducativa.png", idade: "3-5" },
+      { nome: "Tapete de Dança Encantado", preco: "R$ 149,90", img: "imagens/tapete.png", idade: "6-8" },
+      { nome: "Casinha Mágica de Jardim", preco: "R$ 289,90", img: "imagens/casa.png", idade: "9-12" }
     ];
 
     const carrinho = [];
@@ -176,43 +187,4 @@
   </script>
 
 </body>
-
-  <script>
-  function buscarEndereco() {
-    const cepInput = document.getElementById("cep");
-    const cep = cepInput.value.replace(/\D/g, "");
-
-    if (cep.length === 8) {
-      fetch(`https://viacep.com.br/ws/${cep}/json/`)
-        .then(response => response.json())
-        .then(data => {
-          if (!data.erro) {
-            document.getElementById("endereco").value = data.logradouro;
-            document.getElementById("bairro").value = data.bairro;
-            document.getElementById("cidade").value = data.localidade;
-            document.getElementById("estado").value = data.uf;
-          } else {
-            alert("CEP não encontrado.");
-            limparCamposEndereco();
-          }
-        })
-        .catch(error => {
-          console.error("Erro ao buscar CEP:", error);
-          alert("Erro na busca do CEP.");
-          limparCamposEndereco();
-        });
-    } else if (cep !== "") {
-      alert("CEP inválido.");
-      limparCamposEndereco();
-    }
-  }
-
-  function limparCamposEndereco() {
-    document.getElementById("endereco").value = "";
-    document.getElementById("bairro").value = "";
-    document.getElementById("cidade").value = "";
-    document.getElementById("estado").value = "";
-  }
-</script>
-
 </html>
