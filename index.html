@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meninas Poderosas - Brinquedos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-pink-100 via-purple-100 to-yellow-100 min-h-screen font-sans">
+
+  <!-- Header -->
+  <header class="bg-white shadow-md p-4 flex justify-between items-center">
+    <div class="flex items-center gap-2">
+      <img src="logo-meninas-poderosas.png" alt="Meninas Poderosas Logo" class="h-20" />
+      <h1 class="text-2xl font-bold text-pink-500">Meninas Poderosas</h1>
+    </div>
+    <nav class="text-pink-600 font-medium flex gap-6">
+      <a href="#">Início</a>
+      <a href="#registro">Registro</a>
+      <a href="#carrinho">Carrinho</a>
+      <a href="#pagamento">Pagamento</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex p-6 gap-6">
+    <!-- Sidebar com Filtros -->
+    <aside class="w-1/5 bg-white p-4 rounded-xl shadow-md h-fit">
+      <h2 class="text-lg font-bold text-pink-600 mb-4">Faixa Etária</h2>
+      <ul class="space-y-2 text-pink-700" id="filtros-faixa-etaria">
+        <li><input type="checkbox" value="0-2" /> Até 2 anos</li>
+        <li><input type="checkbox" value="3-5" /> 3 a 5 anos</li>
+        <li><input type="checkbox" value="6-8" /> 6 a 8 anos</li>
+        <li><input type="checkbox" value="9-12" /> 9 a 12 anos</li>
+      </ul>
+    </aside>
+
+    <!-- Produtos -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-4/5">
+      <!-- Os produtos serão renderizados via JavaScript -->
+    </section>
+  </main>
+
+  <!-- Seção Registro -->
+  <section id="registro" class="bg-white mx-6 my-10 p-6 rounded-xl shadow-md">
+    <h2 class="text-2xl font-bold text-pink-600 mb-4">Registro</h2>
+    <form class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <input class="p-2 rounded border" type="text" placeholder="Nome completo" />
+      <input class="p-2 rounded border" type="email" placeholder="Email" />
+      <input class="p-2 rounded border" type="password" placeholder="Senha" />
+      <input class="p-2 rounded border" type="text" placeholder="Endereço" />
+      <button class="col-span-2 bg-pink-500 text-white p-3 rounded-xl hover:bg-pink-600">Registrar</button>
+    </form>
+  </section>
+
+  <!-- Seção Carrinho -->
+  <section id="carrinho" class="bg-white mx-6 my-10 p-6 rounded-xl shadow-md">
+    <h2 class="text-2xl font-bold text-pink-600 mb-4">Carrinho de Compras</h2>
+    <div id="itens-carrinho" class="space-y-4 text-pink-700">
+      <p id="carrinho-vazio">Seu carrinho está vazio.</p>
+    </div>
+    <button id="btn-finalizar" class="mt-6 bg-pink-500 text-white p-3 rounded-xl hover:bg-pink-600 hidden">
+      Finalizar Compra
+    </button>
+  </section>
+
+  <!-- Seção Pagamento -->
+  <section id="pagamento" class="bg-white mx-6 my-10 p-6 rounded-xl shadow-md">
+    <h2 class="text-2xl font-bold text-pink-600 mb-4">Pagamento</h2>
+    <form class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <input class="p-2 rounded border" type="text" placeholder="Número do Cartão" />
+      <input class="p-2 rounded border" type="text" placeholder="Nome no Cartão" />
+      <input class="p-2 rounded border" type="text" placeholder="Validade (MM/AA)" />
+      <input class="p-2 rounded border" type="text" placeholder="CVV" />
+      <button class="col-span-2 bg-pink-500 text-white p-3 rounded-xl hover:bg-pink-600">Finalizar Compra</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white text-center text-pink-500 py-6 mt-10 shadow-inner">
+    <p>&copy; 2025 Meninas Poderosas. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    const produtos = [
+      { nome: "Boneca Princesa Rosa", preco: "R$ 89,90", img: "imagens/boneca.png", idade: "3-5" },
+      { nome: "Casa de Boneca Encantada", preco: "R$ 199,90", img: "imagens/casadebonecaencantada.png", idade: "6-8" },
+      { nome: "Unicórnio de Pelúcia", preco: "R$ 59,90", img: "imagens/unicorniodepelucia.png", idade: "3-5" },
+      { nome: "Kit de Penteadeira Infantil", preco: "R$ 129,90", img: "imagens/kitdepenteadeirainfantil.png", idade: "6-8" },
+      { nome: "Cozinha Infantil Rosa", preco: "R$ 159,90", img: "imagens/cozinhainfantilrosa.png", idade: "6-8" },
+      { nome: "Carrinho de Boneca", preco: "R$ 79,90", img: "imagens/carrinho.png", idade: "3-5" },
+      { nome: "Castelo Encantado de Princesas", preco: "R$ 249,90", img: "imagens/castelo.png", idade: "6-8" },
+      { nome: "Conjunto de Chá Mágico", preco: "R$ 49,90", img: "imagens/chamagico.png", idade: "3-5" },
+      { nome: "Kit Médico Infantil", preco: "R$ 69,90", img: "imagens/medico.png", idade: "6-8" },
+      { nome: "Boneca Bebê com Acessórios", preco: "R$ 99,90", img: "imagens/bonecoacessorios.png", idade: "3-5" },
+      { nome: "Maleta de Pintura Rosa", preco: "R$ 39,90", img: "imagens/maleta.png", idade: "6-8" },
+      { nome: "Bichinho de Pelúcia Gatinha", preco: "R$ 34,90", img: "imagens/gatinho.png", idade: "0-2" },
+      { nome: "Tapete Musical das Princesas", preco: "R$ 89,90", img: "imagens/tapeteencantado.png", idade: "0-2" },
+      { nome: "Mini Mercadinho Rosa", preco: "R$ 119,90", img: "imagens/mercadinho.png", idade: "6-8" },
+      { nome: "Microfone de Estrela Pop", preco: "R$ 44,90", img: "imagens/microfone.png", idade: "6-8" },
+      { nome: "Pônei Encantado com Escova", preco: "R$ 54,90", img: "imagens/ponei.png", idade: "3-5" },
+      { nome: "Boneca com Carrinho de Sorvete", preco: "R$ 109,90", img: "imagens/sorveteira.png", idade: "6-8" },
+      { nome: "Mesa Didática Rosa", preco: "R$ 139,90", img: "imagens/mesaeducativa.png", idade: "3-5" },
+      { nome: "Tapete de Dança Encantado", preco: "R$ 149,90", img: "imagens/tapete.png", idade: "6-8" },
+      { nome: "Casinha Mágica de Jardim", preco: "R$ 289,90", img: "imagens/casa.png", idade: "9-12" }
+    ];
+
+    const carrinho = [];
+    const carrinhoContainer = document.getElementById("itens-carrinho");
+    const msgVazio = document.getElementById("carrinho-vazio");
+    const btnFinalizar = document.getElementById("btn-finalizar");
+
+    function atualizarCarrinho() {
+      carrinhoContainer.innerHTML = "";
+      if (carrinho.length === 0) {
+        msgVazio.classList.remove("hidden");
+        msgVazio.textContent = "Seu carrinho está vazio.";
+        btnFinalizar.classList.add("hidden");
+      } else {
+        msgVazio.classList.add("hidden");
+        carrinho.forEach((item, index) => {
+          const div = document.createElement("div");
+          div.innerHTML = `
+            <div class="flex justify-between items-center border-b pb-2">
+              <span>${item.nome} - <strong>${item.preco}</strong></span>
+              <button onclick="removerDoCarrinho(${index})" class="text-red-500 hover:underline">Remover</button>
+            </div>
+          `;
+          carrinhoContainer.appendChild(div);
+        });
+        btnFinalizar.classList.remove("hidden");
+      }
+    }
+
+    function adicionarAoCarrinho(produto) {
+      carrinho.push(produto);
+      atualizarCarrinho();
+    }
+
+    function removerDoCarrinho(index) {
+      carrinho.splice(index, 1);
+      atualizarCarrinho();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const container = document.querySelector("section.grid");
+      const filtros = document.querySelectorAll("#filtros-faixa-etaria input");
+
+      function renderizarProdutos(filtroSelecionado = []) {
+        container.innerHTML = "";
+        produtos
+          .filter(prod => filtroSelecionado.length === 0 || filtroSelecionado.includes(prod.idade))
+          .forEach((prod, index) => {
+            container.innerHTML += `
+              <div class='bg-white p-4 rounded-2xl shadow-md hover:shadow-xl transition'>
+                <img src='${prod.img}' alt='${prod.nome}' class='w-full h-48 object-cover rounded-xl mb-4' />
+                <h3 class='text-lg font-semibold text-pink-700'>${prod.nome}</h3>
+                <p class='text-pink-500'>${prod.preco}</p>
+                <button data-index="${index}" class='btn-adicionar mt-2 bg-pink-400 text-white px-4 py-2 rounded-xl hover:bg-pink-500'>
+                  Adicionar ao Carrinho
+                </button>
+              </div>
+            `;
+          });
+      }
+
+      renderizarProdutos();
+
+      filtros.forEach(checkbox => {
+        checkbox.addEventListener("change", () => {
+          const selecionados = Array.from(filtros)
+            .filter(cb => cb.checked)
+            .map(cb => cb.value);
+          renderizarProdutos(selecionados);
+        });
+      });
+    });
+
+    document.addEventListener("click", (e) => {
+      if (e.target && e.target.matches(".btn-adicionar")) {
+        const index = e.target.dataset.index;
+        const produto = produtos[index];
+        adicionarAoCarrinho(produto);
+      }
+    });
+  </script>
+
+</body>
+</html>
