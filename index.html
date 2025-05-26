@@ -1,4 +1,36 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Compartilhe o Site com QR Code</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    #qrcode {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Compartilhe nosso site!</h2>
+  <div id="qrcode"></div>
+
+  <script>
+    // URL do seu site que quer compartilhar
+    const url = window.location.href; // pega a URL atual da página
+
+    // Criar o QR Code no div #qrcode
+    new QRCode(document.getElementById("qrcode"), {
+      text: url,
+      width: 200,
+      height: 200,
+    });
+  </script>
+
+</body>
+</html>
+
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
