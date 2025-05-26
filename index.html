@@ -45,18 +45,23 @@
   <!-- Seção Registro -->
   <section id="registro" class="bg-white mx-6 my-10 p-6 rounded-xl shadow-md">
     <h2 class="text-2xl font-bold text-pink-600 mb-4">Registro</h2>
-    <form class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <input class="p-2 rounded border" type="text" placeholder="Nome completo" />
-      <input class="p-2 rounded border" type="email" placeholder="Email" />
-      <input class="p-2 rounded border" type="password" placeholder="Senha" />
-      <input class="p-2 rounded border" type="text" placeholder="Cep" />
-      <input class="p-2 rounded border" type="text" placeholder="Endereço" />
-      <input class="p-2 rounded border" type="text" placeholder="Número" />
-      <input class="p-2 rounded border" type="text" placeholder="Bairro" />
-      <input class="p-2 rounded border" type="text" placeholder="Cidade" />
-      <input class="p-2 rounded border" type="text" placeholder="Estado" />
-      <button class="col-span-2 bg-pink-500 text-white p-3 rounded-xl hover:bg-pink-600">Registrar</button>
-    </form>
+ <form class="grid grid-cols-1 md:grid-cols-2 gap-4">
+  <input class="p-2 rounded border" type="text" placeholder="Nome completo" />
+  <input class="p-2 rounded border" type="email" placeholder="Email" />
+  <input class="p-2 rounded border" type="password" placeholder="Senha" />
+
+  <!-- Campo CEP com onblur -->
+  <input class="p-2 rounded border" type="text" placeholder="Cep" id="cep" onblur="buscarEndereco()" />
+
+  <!-- Campos preenchidos automaticamente -->
+  <input class="p-2 rounded border" type="text" placeholder="Endereço" id="endereco" />
+  <input class="p-2 rounded border" type="text" placeholder="Número" />
+  <input class="p-2 rounded border" type="text" placeholder="Bairro" id="bairro" />
+  <input class="p-2 rounded border" type="text" placeholder="Cidade" id="cidade" />
+  <input class="p-2 rounded border" type="text" placeholder="Estado" id="estado" />
+
+  <button class="col-span-2 bg-pink-500 text-white p-3 rounded-xl hover:bg-pink-600">Registrar</button>
+</form>
   </section>
 
   <!-- Seção Carrinho -->
