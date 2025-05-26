@@ -14,7 +14,28 @@
 <body>
 
   <h2>Compartilhe nosso site!</h2>
-  <div id="qrcode"></div>
+
+    <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center; /* centraliza na horizontal */
+      align-items: center;     /* centraliza na vertical */
+      background-color: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+
+    #qrcode {
+      padding: 20px;
+      background: white;
+      border: 2px solid #6a0dad; /* cor roxa */
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(106, 13, 173, 0.5); /* sombra roxa */
+    }
+  </style>
+</head>
+
 
   <script>
     // URL do seu site que quer compartilhar
